@@ -5,431 +5,481 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- ============================================
-         TITLE - Change this to your website name
+         PAGE TITLE
+         - Change this to your name
     ============================================= -->
     <title>Liam | Developer</title>
     
-    <!-- Link to your CSS file -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Font -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- ============================================
-         MAIN CONTAINER
-         - Split into left and right panels
+         MOUSE GLOW EFFECT
+         - This div follows your cursor
+         - Creates a subtle glow effect on the page
+         - Controlled by JavaScript at bottom
     ============================================= -->
-    <div class="split-container">
+    <div class="mouse-glow"></div>
+
+
+    <!-- ============================================
+         MOBILE TAB NAVIGATION
+         - Only visible on phones/tablets
+         - Switches between About, Projects, Blog
+    ============================================= -->
+    <nav class="mobile-tabs">
+        <button class="tab-btn active" data-tab="about">About</button>
+        <button class="tab-btn" data-tab="projects">Projects</button>
+        <button class="tab-btn" data-tab="blog">Blog</button>
+    </nav>
+
+
+    <!-- ============================================
+         MAIN CONTAINER
+    ============================================= -->
+    <div class="container">
 
         <!-- ============================================
-             LEFT PANEL - About You
-             - Your info, skills, contact
-             - This stays fixed while right side scrolls
+             LEFT PANEL - YOUR INFO
+             - Fixed on desktop
+             - Becomes "About" tab on mobile
         ============================================= -->
-        <aside class="left-panel">
+        <aside class="left-panel" data-tab-content="about">
             
-            <!-- Profile Section -->
-            <div class="profile">
+            <!-- ==================
+                 PROFILE
+            ================== -->
+            <header class="profile">
                 
-                <!-- Profile Picture - Replace with your image -->
-                <!-- Option 1: Use an image -->
-                <!-- <img src="your-photo.jpg" alt="Your Name" class="profile-pic"> -->
-                
-                <!-- Option 2: Use initials (default) -->
-                <div class="profile-pic-placeholder">
-                    <span>L</span>  <!-- Change to your initial -->
+                <!-- Profile Image/Initial -->
+                <!-- To use a photo: replace the div with -->
+                <!-- <img src="your-photo.jpg" alt="Name" class="profile-img"> -->
+                <div class="profile-img">
+                    <span>L</span>
                 </div>
                 
-                <!-- Your Name -->
-                <h1 class="profile-name">Liam Ribble</h1>  <!-- Change this -->
+                <!-- Name -->
+                <h1 class="name">Liam</h1>
                 
-                <!-- Your Title/Role -->
-                <p class="profile-title">Developer in Training, and Roboticist.</p>  <!-- Change this -->
+                <!-- Title -->
+                <p class="title">Full-Stack Developer</p>
                 
-                <!-- Status Indicator - Online/Available -->
-                <div class="status">
-                    <span class="status-dot"></span>
-                    <span class="status-text">I will work on whatever I want (Feel feel to talk to me!)</span>  <!-- Change this -->
-                </div>
-            </div>
+                <!-- Location (optional) -->
+                <p class="location">San Francisco, CA</p>
+                
+            </header>
 
-            <!-- ===== ABOUT SECTION ===== -->
-            <div class="panel-section">
-                <h2 class="panel-heading">
-                    <span class="heading-icon">//</span> About
-                </h2>
-                <p class="about-text">
-                    Hey! i am a programmer for Gleipnir, 50250C, and 7702A!
-                    Feel free to reach out to me from my discord (I most commonly check this)
-                    There are no bad questions, open to anything
-                    (esp if you got info into how to get into MIT or Open source projects :D)
-                    <!-- Change this to your own bio -->
+
+            <!-- ==================
+                 ABOUT
+            ================== -->
+            <section class="info-section">
+                <h2 class="info-label">About</h2>
+                <p class="info-text">
+                    Building software that solves real problems. 
+                    Focused on clean code, performance, and user experience. 
+                    Currently interested in distributed systems and developer tools.
                 </p>
-            </div>
+            </section>
 
-            <!-- ===== SKILLS SECTION ===== -->
-            <div class="panel-section">
-                <h2 class="panel-heading">
-                    <span class="heading-icon">//</span> Skills
-                </h2>
-                <div class="skills-grid">
-                    <!-- Add or remove skills as needed -->
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Golang</span>
-                    <span class="skill-tag">Javascript</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">Windows</span>
-                    <span class="skill-tag">Being Awsome</span>
+
+            <!-- ==================
+                 SKILLS
+            ================== -->
+            <section class="info-section">
+                <h2 class="info-label">Stack</h2>
+                <div class="tags">
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Redis</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">AWS</span>
                 </div>
+            </section>
+
+
+            <!-- ==================
+                 CONTACT LINKS
+            ================== -->
+            <section class="info-section">
+                <h2 class="info-label">Connect</h2>
+                <nav class="links">
+                    <a href="mailto:your@email.com" class="link">
+                        <span class="link-text">Email</span>
+                        <span class="link-arrow">-></span>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="link">
+                        <span class="link-text">GitHub</span>
+                        <span class="link-arrow">-></span>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="link">
+                        <span class="link-text">LinkedIn</span>
+                        <span class="link-arrow">-></span>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="link">
+                        <span class="link-text">Twitter</span>
+                        <span class="link-arrow">-></span>
+                    </a>
+                </nav>
+            </section>
+
+
+            <!-- ==================
+                 STATUS
+            ================== -->
+            <div class="status-box">
+                <span class="status-dot"></span>
+                <span class="status-text">Available for new projects</span>
             </div>
 
-            <!-- ===== CONTACT/LINKS SECTION ===== -->
-            <div class="panel-section">
-                <h2 class="panel-heading">
-                    <span class="heading-icon">//</span> Talk to me!
-                </h2>
-                <ul class="contact-list">
-                    <!-- Email -->
-                    <li>
-                        <a href="mailto:william.thomas.ribble@email.com" class="contact-link">
-                            <span class="contact-icon">→</span>
-                            william.thomas.ribble@gmail.com  <!-- Change this -->
-                        </a>
-                    </li>
-                    <!-- GitHub -->
-                    <li>
-                        <a href="https://github.com/ForgottenMail" target="_blank" class="contact-link">
-                            <span class="contact-icon">→</span>
-                            github.com/ForgottenMail/  <!-- Change this -->
-                        </a>
-                    </li>
-                    <!-- LinkedIn -->
-                    <li>
-                        <!-- 
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-link">
-                            <span class="contact-icon">→</span>
-                            LinkedIn  
-                        </a>
-                    </li>
-                -->
-                    <!-- Twitter/X 
-                    <li>
-                        <a href="https://twitter.com/yourusername" target="_blank" class="contact-link">
-                            <span class="contact-icon">→</span>
-                            @yourusername  
 
-                        -->
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- ===== FOOTER NOTE ===== -->
-            <div class="panel-footer">
-                <p>&copy; 2026 Liam. Built with Vex </p>  <!-- Change name -->
-            </div>
+            <!-- ==================
+                 FOOTER
+            ================== -->
+            <footer class="footer">
+                <p>2024 Liam</p>
+            </footer>
 
         </aside>
 
 
         <!-- ============================================
              DIVIDER LINE
-             - The greenish-grey line between panels
         ============================================= -->
-        <div class="divider">
-            <div class="divider-line"></div>
-            <div class="divider-glow"></div>
-        </div>
+        <div class="divider"></div>
 
 
         <!-- ============================================
-             RIGHT PANEL - Projects & Blog
-             - This side scrolls
+             RIGHT PANEL - PROJECTS & BLOG
         ============================================= -->
         <main class="right-panel">
 
             <!-- ============================================
                  PROJECTS SECTION
             ============================================= -->
-            <section id="projects" class="content-section">
-                <h2 class="section-title">
-                    <span class="title-slash">//</span> Projects
-                </h2>
+            <section class="section" data-tab-content="projects">
+                
+                <header class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <p class="section-subtitle">Things I've built</p>
+                </header>
 
-                <!-- Projects Grid -->
-                <div class="projects-grid">
+                <div class="cards-grid">
 
-                    <!-- ===== PROJECT CARD 1 ===== -->
-                    <!-- Copy this div to add more projects -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">🚀</span>  <!-- Change emoji -->
-                            <span class="project-year">2026</span>  <!-- Change year -->
+                    <!-- ==================
+                         PROJECT CARD 1
+                         - Copy this to add more
+                    ================== -->
+                    <a href="https://your-project-url.com" target="_blank" class="card">
+                        
+                        <!-- Card Highlight Effect (CSS handles this) -->
+                        <div class="card-highlight"></div>
+                        
+                        <!-- Card Content -->
+                        <div class="card-content">
+                            
+                            <!-- Header: Title + Year -->
+                            <div class="card-header">
+                                <h3 class="card-title">Project Name</h3>
+                                <span class="card-meta">2024</span>
+                            </div>
+                            
+                            <!-- Description -->
+                            <p class="card-description">
+                                A brief description of what this project does. 
+                                Keep it to 1-2 sentences for best readability.
+                            </p>
+                            
+                            <!-- Tech Stack -->
+                            <div class="card-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                            
+                            <!-- Link Indicator -->
+                            <div class="card-link">
+                                <span>View Project</span>
+                                <span class="arrow">-></span>
+                            </div>
+                            
                         </div>
-                        <h3 class="project-name">This site!</h3>  <!-- Change name -->
-                        <p class="project-description">
-                           Fun little site that I programed in a afternoon because I was borred
-                            <!-- Change description -->
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS</span>
-                            <span>Vibe Coding</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/ForgotenMail/forgottenmail" class="project-link">
-                                <span>Repo</span>
-                                <span class="link-arrow">↗</span>
-                            </a>
-                        </div>
-                    </article>
+                    </a>
 
-                    <!-- ===== PROJECT CARD 2 ===== -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">🔧</span>
-                            <span class="project-year">2026</span>
-                        </div>
-                        <h3 class="project-name">Vennice</h3>
-                        <p class="project-description">
-                            A open source project for Micropython for vex v5 that I am contributing to!
-                            ( I am making/made the drivelibrary, basicly lemlib for it but cooler)
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/venice-v5" class="project-link">
-                                <span>Repo</span>
-                                <span class="link-arrow">↗</span>
-                            </a>
-                        </div>
-                    </article>
 
-                    <!-- ===== PROJECT CARD 3 ===== 
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">🎮</span>
-                            <span class="project-year">2023</span>
+                    <!-- ==================
+                         PROJECT CARD 2
+                    ================== -->
+                    <a href="https://github.com/username/repo" target="_blank" class="card">
+                        <div class="card-highlight"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">CLI Tool</h3>
+                                <span class="card-meta">2024</span>
+                            </div>
+                            <p class="card-description">
+                                Command-line tool for automating development workflows. 
+                                Saves hours of repetitive work every week.
+                            </p>
+                            <div class="card-tags">
+                                <span>Go</span>
+                                <span>Cobra</span>
+                            </div>
+                            <div class="card-link">
+                                <span>View Source</span>
+                                <span class="arrow">-></span>
+                            </div>
                         </div>
-                        <h3 class="project-name">Browser Game</h3>
-                        <p class="project-description">
-                            A fun little game I made when I should have been 
-                            sleeping. It's actually pretty addictive.
-                        </p>
-                        <div class="project-tech">
-                            <span>JavaScript</span>
-                            <span>Canvas</span>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <span>Play Now</span>
-                                <span class="link-arrow">↗</span>
-                            </a>
-                            <a href="#" class="project-link">
-                                <span>Source</span>
-                                <span class="link-arrow">↗</span>
-                            </a>
-                        </div>
-                    </article>
-                -->
+                    </a>
 
-                    <!-- ===== PROJECT CARD 4 =====
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-icon">🤖</span>
-                            <span class="project-year">2023</span>
+
+                    <!-- ==================
+                         PROJECT CARD 3
+                    ================== -->
+                    <a href="https://your-project-url.com" target="_blank" class="card">
+                        <div class="card-highlight"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">API Service</h3>
+                                <span class="card-meta">2023</span>
+                            </div>
+                            <p class="card-description">
+                                High-performance REST API handling millions of requests. 
+                                Built with caching and rate limiting.
+                            </p>
+                            <div class="card-tags">
+                                <span>Python</span>
+                                <span>FastAPI</span>
+                                <span>Redis</span>
+                            </div>
+                            <div class="card-link">
+                                <span>View Project</span>
+                                <span class="arrow">-></span>
+                            </div>
                         </div>
-                        <h3 class="project-name">Discord Bot</h3>
-                        <p class="project-description">
-                            A bot that manages my server and does random things. 
-                            Also tells bad programming jokes.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Discord.py</span>
-                            <span>APIs</span>
+                    </a>
+
+
+                    <!-- ==================
+                         PROJECT CARD 4
+                    ================== -->
+                    <a href="https://github.com/username/repo" target="_blank" class="card">
+                        <div class="card-highlight"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Dashboard</h3>
+                                <span class="card-meta">2023</span>
+                            </div>
+                            <p class="card-description">
+                                Real-time analytics dashboard with customizable widgets. 
+                                Visualizes data from multiple sources.
+                            </p>
+                            <div class="card-tags">
+                                <span>Vue.js</span>
+                                <span>D3.js</span>
+                                <span>WebSocket</span>
+                            </div>
+                            <div class="card-link">
+                                <span>View Source</span>
+                                <span class="arrow">-></span>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <span>Invite Bot</span>
-                                <span class="link-arrow">↗</span>
-                            </a>
+                    </a>
+
+
+                    <!-- ==================
+                         PROJECT CARD 5
+                    ================== -->
+                    <a href="https://your-project-url.com" target="_blank" class="card">
+                        <div class="card-highlight"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Mobile App</h3>
+                                <span class="card-meta">2023</span>
+                            </div>
+                            <p class="card-description">
+                                Cross-platform mobile app for task management. 
+                                Offline-first with cloud sync.
+                            </p>
+                            <div class="card-tags">
+                                <span>React Native</span>
+                                <span>Firebase</span>
+                            </div>
+                            <div class="card-link">
+                                <span>View Project</span>
+                                <span class="arrow">-></span>
+                            </div>
                         </div>
-                    </article>
-                -->
+                    </a>
+
+
+                    <!-- ==================
+                         PROJECT CARD 6
+                    ================== -->
+                    <a href="https://github.com/username/repo" target="_blank" class="card">
+                        <div class="card-highlight"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">VS Code Extension</h3>
+                                <span class="card-meta">2022</span>
+                            </div>
+                            <p class="card-description">
+                                Developer productivity extension with 10k+ installs. 
+                                Adds useful shortcuts and snippets.
+                            </p>
+                            <div class="card-tags">
+                                <span>TypeScript</span>
+                                <span>VS Code API</span>
+                            </div>
+                            <div class="card-link">
+                                <span>View Source</span>
+                                <span class="arrow">-></span>
+                            </div>
+                        </div>
+                    </a>
 
                 </div>
+
             </section>
 
 
             <!-- ============================================
                  BLOG SECTION
             ============================================= -->
-            <section id="blog" class="content-section">
-                <h2 class="section-title">
-                    <span class="title-slash">//</span> Blog Posts ( I made this and have no use for it yet, THAT WILL CHANGE!)
-                </h2>
-
-                <!-- Blog Posts List -->
-                <div class="blog-list">
-
-                    <!-- ===== BLOG POST 1 ===== -->
-                    <!-- Copy this div to add more posts -->
-                    <article class="blog-card">
-                        <div class="blog-date">
-                            <span class="date-day">15</span>
-                            <span class="date-month">Mar</span>
-                        </div>
-                        <div class="blog-content">
-                            <a href="#" class="blog-title">
-                                Why I Code at 3am (And Why You Shouldn't)
-                            </a>
-                            <p class="blog-excerpt">
-                                A deep dive into my terrible sleep schedule and 
-                                how it somehow makes me more productive...
-                            </p>
-                            <div class="blog-meta">
-                                <span class="blog-tag">Lifestyle</span>
-                                <span class="blog-read-time">5 min read</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== BLOG POST 2 ===== -->
-                    <article class="blog-card">
-                        <div class="blog-date">
-                            <span class="date-day">02</span>
-                            <span class="date-month">Mar</span>
-                        </div>
-                        <div class="blog-content">
-                            <a href="#" class="blog-title">
-                                Building a CLI Tool From Scratch
-                            </a>
-                            <p class="blog-excerpt">
-                                How I built a command-line tool that saves me 
-                                hours every week. Complete with code examples.
-                            </p>
-                            <div class="blog-meta">
-                                <span class="blog-tag">Tutorial</span>
-                                <span class="blog-read-time">12 min read</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== BLOG POST 3 ===== -->
-                    <article class="blog-card">
-                        <div class="blog-date">
-                            <span class="date-day">18</span>
-                            <span class="date-month">Feb</span>
-                        </div>
-                        <div class="blog-content">
-                            <a href="#" class="blog-title">
-                                My Developer Setup in 2024
-                            </a>
-                            <p class="blog-excerpt">
-                                All the tools, extensions, and configs I use 
-                                daily. Yes, I use dark mode everywhere.
-                            </p>
-                            <div class="blog-meta">
-                                <span class="blog-tag">Setup</span>
-                                <span class="blog-read-time">8 min read</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== BLOG POST 4 ===== -->
-                    <article class="blog-card">
-                        <div class="blog-date">
-                            <span class="date-day">05</span>
-                            <span class="date-month">Feb</span>
-                        </div>
-                        <div class="blog-content">
-                            <a href="#" class="blog-title">
-                                The Art of Reading Documentation
-                            </a>
-                            <p class="blog-excerpt">
-                                RTFM they said. So I did. Here's what I learned 
-                                about actually reading the docs...
-                            </p>
-                            <div class="blog-meta">
-                                <span class="blog-tag">Tips</span>
-                                <span class="blog-read-time">6 min read</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== BLOG POST 5 ===== -->
-                    <article class="blog-card">
-                        <div class="blog-date">
-                            <span class="date-day">21</span>
-                            <span class="date-month">Jan</span>
-                        </div>
-                        <div class="blog-content">
-                            <a href="#" class="blog-title">
-                                Dark Theme Everything: A Guide
-                            </a>
-                            <p class="blog-excerpt">
-                                How to enable dark mode on literally everything. 
-                                Your eyes will thank you.
-                            </p>
-                            <div class="blog-meta">
-                                <span class="blog-tag">Guide</span>
-                                <span class="blog-read-time">4 min read</span>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <!-- View All Button -->
-                <div class="view-all">
-                    <a href="#" class="btn btn-secondary">
-                        View All Posts
-                        <span class="btn-arrow">→</span>
-                    </a>
-                </div>
-            </section>
-
-
-            <!-- ============================================
-                 BOTTOM SECTION - Optional Extra Content
-            ============================================= -->
-            <section class="content-section">
-                <h2 class="section-title">
-                    <span class="title-slash">//</span> Currently
-                </h2>
+            <section class="section" data-tab-content="blog">
                 
-                <div class="currently-grid">
-                    
-                    <!-- What you're working on -->
-                    <div class="currently-card">
-                        <span class="currently-icon">💻</span>
-                        <h4>Working on</h4>
-                        <p>Building a new side project with Rust</p>
-                    </div>
-                    
-                    <!-- What you're learning -->
-                    <div class="currently-card">
-                        <span class="currently-icon">📚</span>
-                        <h4>Learning</h4>
-                        <p>Systems programming & low-level stuff</p>
-                    </div>
-                    
-                    <!-- What you're listening to -->
-                    <div class="currently-card">
-                        <span class="currently-icon">🎧</span>
-                        <h4>Listening to</h4>
-                        <p>Lo-fi beats & synthwave playlists</p>
-                    </div>
-                    
+                <header class="section-header">
+                    <h2 class="section-title">Blog</h2>
+                    <p class="section-subtitle">Thoughts and tutorials</p>
+                </header>
+
+                <div class="posts-list">
+
+                    <!-- ==================
+                         BLOG POST 1
+                         - Copy this to add more
+                    ================== -->
+                    <a href="/blog/post-url" class="post">
+                        <div class="post-date">
+                            <span class="day">15</span>
+                            <span class="month">Mar</span>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">Building Scalable APIs with FastAPI</h3>
+                            <p class="post-excerpt">
+                                A deep dive into building production-ready APIs. 
+                                Covering authentication, caching, and deployment.
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-tag">Tutorial</span>
+                                <span class="post-read">12 min read</span>
+                            </div>
+                        </div>
+                        <span class="post-arrow">-></span>
+                    </a>
+
+
+                    <!-- ==================
+                         BLOG POST 2
+                    ================== -->
+                    <a href="/blog/post-url" class="post">
+                        <div class="post-date">
+                            <span class="day">02</span>
+                            <span class="month">Mar</span>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">My Development Environment in 2024</h3>
+                            <p class="post-excerpt">
+                                Tools, configs, and workflows I use daily. 
+                                Terminal setup, editor, and productivity apps.
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-tag">Setup</span>
+                                <span class="post-read">8 min read</span>
+                            </div>
+                        </div>
+                        <span class="post-arrow">-></span>
+                    </a>
+
+
+                    <!-- ==================
+                         BLOG POST 3
+                    ================== -->
+                    <a href="/blog/post-url" class="post">
+                        <div class="post-date">
+                            <span class="day">18</span>
+                            <span class="month">Feb</span>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">Understanding TypeScript Generics</h3>
+                            <p class="post-excerpt">
+                                Practical guide to generics with real-world examples. 
+                                From basics to advanced patterns.
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-tag">TypeScript</span>
+                                <span class="post-read">15 min read</span>
+                            </div>
+                        </div>
+                        <span class="post-arrow">-></span>
+                    </a>
+
+
+                    <!-- ==================
+                         BLOG POST 4
+                    ================== -->
+                    <a href="/blog/post-url" class="post">
+                        <div class="post-date">
+                            <span class="day">05</span>
+                            <span class="month">Feb</span>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">Docker for Local Development</h3>
+                            <p class="post-excerpt">
+                                Setting up a containerized development environment. 
+                                Consistent setups across machines.
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-tag">DevOps</span>
+                                <span class="post-read">10 min read</span>
+                            </div>
+                        </div>
+                        <span class="post-arrow">-></span>
+                    </a>
+
+
+                    <!-- ==================
+                         BLOG POST 5
+                    ================== -->
+                    <a href="/blog/post-url" class="post">
+                        <div class="post-date">
+                            <span class="day">21</span>
+                            <span class="month">Jan</span>
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">Writing Better Git Commits</h3>
+                            <p class="post-excerpt">
+                                Conventions and tools for meaningful commit history. 
+                                Making your repos easier to navigate.
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-tag">Git</span>
+                                <span class="post-read">6 min read</span>
+                            </div>
+                        </div>
+                        <span class="post-arrow">-></span>
+                    </a>
+
                 </div>
+
             </section>
 
         </main>
@@ -438,56 +488,151 @@
 
 
     <!-- ============================================
-         MOBILE NAVIGATION
-         - Only visible on small screens
-    ============================================= -->
-    <nav class="mobile-nav">
-        <a href="#" class="mobile-nav-link active" data-panel="left">
-            <span class="nav-icon">👤</span>
-            <span>About</span>
-        </a>
-        <a href="#projects" class="mobile-nav-link" data-panel="right">
-            <span class="nav-icon">🚀</span>
-            <span>Projects</span>
-        </a>
-        <a href="#blog" class="mobile-nav-link" data-panel="right">
-            <span class="nav-icon">📝</span>
-            <span>Blog</span>
-        </a>
-    </nav>
-
-
-    <!-- ============================================
          JAVASCRIPT
     ============================================= -->
     <script>
-        // Mobile navigation panel switching
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-        const leftPanel = document.querySelector('.left-panel');
-        const rightPanel = document.querySelector('.right-panel');
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Remove active from all
-                mobileLinks.forEach(l => l.classList.remove('active'));
-                // Add active to clicked
-                this.classList.add('active');
+        /* ============================================
+           MOUSE GLOW EFFECT
+           - Creates a subtle glow that follows cursor
+           - Only on desktop (disabled on touch devices)
+        ============================================= */
+        
+        const mouseGlow = document.querySelector('.mouse-glow');
+        let mouseX = 0;
+        let mouseY = 0;
+        let glowX = 0;
+        let glowY = 0;
+        
+        // Check if device has touch (likely mobile)
+        const isTouchDevice = 'ontouchstart' in window;
+        
+        if (!isTouchDevice && mouseGlow) {
+            
+            // Track mouse position
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            // Smooth animation loop for glow
+            function animateGlow() {
+                // Ease the glow towards mouse position
+                glowX += (mouseX - glowX) * 0.1;
+                glowY += (mouseY - glowY) * 0.1;
                 
-                // Show correct panel on mobile
-                const panel = this.dataset.panel;
-                if (window.innerWidth <= 768) {
-                    if (panel === 'left') {
-                        leftPanel.classList.add('show');
-                        rightPanel.classList.remove('show');
-                    } else {
-                        leftPanel.classList.remove('show');
-                        rightPanel.classList.add('show');
-                    }
+                // Update glow position
+                mouseGlow.style.left = glowX + 'px';
+                mouseGlow.style.top = glowY + 'px';
+                
+                requestAnimationFrame(animateGlow);
+            }
+            
+            animateGlow();
+        }
+        
+        
+        /* ============================================
+           CARD HOVER HIGHLIGHT EFFECT
+           - Shows a gradient highlight on cards
+           - Follows mouse position within the card
+        ============================================= */
+        
+        const cards = document.querySelectorAll('.card');
+        
+        cards.forEach(card => {
+            const highlight = card.querySelector('.card-highlight');
+            
+            card.addEventListener('mousemove', (e) => {
+                // Get card boundaries
+                const rect = card.getBoundingClientRect();
+                
+                // Calculate mouse position within card
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Update highlight position
+                if (highlight) {
+                    highlight.style.left = x + 'px';
+                    highlight.style.top = y + 'px';
+                    highlight.style.opacity = '1';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                if (highlight) {
+                    highlight.style.opacity = '0';
                 }
             });
         });
-
-        // Smooth scroll for anchor links
+        
+        
+        /* ============================================
+           MOBILE TAB SWITCHING
+           - Switches visible content on mobile
+           - Uses data attributes to match tabs to content
+        ============================================= */
+        
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('[data-tab-content]');
+        
+        function switchTab(tabName) {
+            // Update button states
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update content visibility
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.dataset.tabContent === tabName) {
+                    content.classList.add('active');
+                }
+            });
+        }
+        
+        // Add click listeners to tabs
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.dataset.tab);
+            });
+        });
+        
+        
+        /* ============================================
+           LAYOUT INITIALIZATION
+           - Sets up correct layout based on screen size
+           - Runs on load and resize
+        ============================================= */
+        
+        function initLayout() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Mobile: show only active tab
+                switchTab('about');
+            } else {
+                // Desktop: show all content
+                tabContents.forEach(content => {
+                    content.classList.add('active');
+                });
+            }
+        }
+        
+        // Run on load
+        initLayout();
+        
+        // Run on resize
+        window.addEventListener('resize', initLayout);
+        
+        
+        /* ============================================
+           SMOOTH SCROLL
+           - Smooth scrolling for anchor links
+        ============================================= */
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
