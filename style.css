@@ -309,16 +309,7 @@ img.profile-img {
     border-color: var(--border-hover);
     color: var(--text-secondary);
 }
-
-
 /* ============================================
-   CONTACT LINKS
-============================================= */
-.links {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    /* ============================================
    CONTACT LINKS
 ============================================= */
 .links {
