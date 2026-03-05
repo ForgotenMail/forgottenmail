@@ -1,11 +1,965 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 700px;
-    margin: 40px auto;
-    line-height: 1.6;
-    padding: 0 20px;
+/* ============================================
+   CSS VARIABLES (DARK HACKER THEME)
+   - Ultra dark with greenish-grey accents
+============================================= */
+:root {
+    /* ===== BACKGROUNDS ===== */
+    --bg-color: #08080c;           /* Darkest - main background */
+    --bg-panel: #0c0c12;           /* Left panel background */
+    --bg-card: #111118;            /* Card backgrounds */
+    --bg-hover: #16161e;           /* Hover states */
+    
+    /* ===== ACCENT COLORS ===== */
+    --accent-color: #4ade80;        /* Muted green - main accent */
+    --accent-dim: #22c55e;          /* Dimmer green */
+    --accent-glow: rgba(74, 222, 128, 0.15);  /* Glow effect */
+    
+    /* ===== DIVIDER COLOR ===== */
+    --divider-color: #2a3a2e;       /* Greenish-grey for the line */
+    --divider-glow: rgba(74, 222, 128, 0.3);  /* Subtle glow */
+    
+    /* ===== TEXT COLORS ===== */
+    --text-muted: #4b5563;          /* Very muted - least important */
+    --text-dim: #6b7280;            /* Dim - body text */
+    --text-normal: #9ca3af;         /* Normal - readable text */
+    --text-bright: #d1d5db;         /* Bright - headings */
+    --text-white: #f3f4f6;          /* Brightest - emphasis */
+    
+    /* ===== BORDERS ===== */
+    --border-color: #1a1a24;        /* Subtle borders */
+    --border-hover: #2a3a2e;        /* Hover border (greenish) */
+    
+    /* ===== SIZING ===== */
+    --left-panel-width: 380px;      /* Width of left panel */
+    --divider-width: 1px;           /* Divider line thickness */
+    --border-radius: 8px;
+    --transition: 0.3s ease;
 }
 
-h1 {
-    font-size: 2.5em;
+
+/* ============================================
+   RESET & BASE
+============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dim);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--text-bright);
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ============================================
+   MAIN SPLIT CONTAINER
+   - Holds left panel, divider, and right panel
+============================================= */
+.split-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ============================================
+   LEFT PANEL
+   - Fixed sidebar with your info
+============================================= */
+.left-panel {
+    width: var(--left-panel-width);
+    min-height: 100vh;
+    background: var(--bg-panel);
+    padding: 40px 30px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+/* Custom scrollbar for left panel */
+.left-panel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
+
+/* ============================================
+   PROFILE SECTION (Top of left panel)
+============================================= */
+.profile {
+    text-align: center;
+    margin-bottom: 35px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Profile Picture Placeholder */
+.profile-pic-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* If using actual image */
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.profile-title {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* Status Indicator */
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-normal);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+
+/* ============================================
+   LEFT PANEL SECTIONS
+============================================= */
+.panel-section {
+    margin-bottom: 30px;
+}
+
+.panel-heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-normal);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.heading-icon {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* About Text */
+.about-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: var(--bg-card);
+    color: var(--text-normal);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.skill-tag:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Contact List */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    background: var(--bg-card);
+    color: var(--accent-color);
+}
+
+.contact-icon {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Panel Footer */
+.panel-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.panel-footer p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+
+/* ============================================
+   DIVIDER LINE
+   - The greenish-grey vertical line
+============================================= */
+.divider {
+    position: fixed;
+    left: var(--left-panel-width);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    z-index: 20;
+}
+
+.divider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--divider-width);
+    background: var(--divider-color);
+}
+
+/* Subtle glow effect on the divider */
+.divider-glow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    width: 20px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--divider-glow),
+        transparent
+    );
+    opacity: 0.5;
+}
+
+
+/* ============================================
+   RIGHT PANEL
+   - Scrollable content area
+============================================= */
+.right-panel {
+    flex: 1;
+    margin-left: var(--left-panel-width);
+    padding: 50px 60px;
+    min-height: 100vh;
+}
+
+
+/* ============================================
+   SECTION TITLES
+============================================= */
+.content-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title-slash {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+}
+
+
+/* ============================================
+   PROJECT CARDS
+============================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-icon {
+    font-size: 1.8rem;
+}
+
+.project-year {
+    font-size: 0.75rem
+    .project-year {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-hover);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.project-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Project Tech Tags */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    background: rgba(74, 222, 128, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.project-link:hover {
+    color: var(--accent-color);
+}
+
+.link-arrow {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.project-link:hover .link-arrow {
+    transform: translate(2px, -2px);
+}
+
+
+/* ============================================
+   BLOG CARDS
+============================================= */
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.blog-card {
+    display: flex;
+    gap: 25px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.blog-card:hover {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+/* Blog Date */
+.blog-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    padding: 10px;
+    background: var(--bg-card);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.date-day {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.date-month {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Blog Content */
+.blog-content {
+    flex: 1;
+}
+
+.blog-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 8px;
+    display: block;
+    line-height: 1.4;
+}
+
+.blog-title:hover {
+    color: var(--accent-color);
+}
+
+.blog-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Blog Meta */
+.blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.blog-tag {
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    background: rgba(74, 222, 128, 0.1);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.blog-read-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+
+/* ============================================
+   VIEW ALL BUTTON
+============================================= */
+.view-all {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-normal);
+}
+
+.btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.15);
+}
+
+.btn-arrow {
+    transition: var(--transition);
+}
+
+.btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+
+/* ============================================
+   CURRENTLY SECTION
+============================================= */
+.currently-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.currently-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.currently-card:hover {
+    border-color: var(--border-hover);
+}
+
+.currently-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.currently-card h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.currently-card p {
+    font-size: 0.95rem;
+    color: var(--text-normal);
+    line-height: 1.5;
+}
+
+
+/* ============================================
+   MOBILE NAVIGATION
+   - Bottom navigation bar for mobile
+============================================= */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-panel);
+    border-top: 1px solid var(--border-color);
+    padding: 10px 20px;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+.mobile-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.mobile-nav-link .nav-icon {
+    font-size: 1.2rem;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+    color: var(--accent-color);
+    background: var(--bg-card);
+}
+
+
+/* ============================================
+   CUSTOM SCROLLBAR
+============================================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--divider-color);
+}
+
+
+/* ============================================
+   TEXT SELECTION
+============================================= */
+::selection {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+
+/* ============================================
+   SUBTLE BACKGROUND EFFECTS
+============================================= */
+
+/* Grid pattern overlay */
+.right-panel::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: var(--left-panel-width);
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(74, 222, 128, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 222, 128, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ============================================
+   ANIMATIONS
+============================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card,
+.blog-card,
+.currently-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Stagger animations */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.15s; }
+.project-card:nth-child(3) { animation-delay: 0.2s; }
+.project-card:nth-child(4) { animation-delay: 0.25s; }
+
+.blog-card:nth-child(1) { animation-delay: 0.1s; }
+.blog-card:nth-child(2) { animation-delay: 0.15s; }
+.blog-card:nth-child(3) { animation-delay: 0.2s; }
+.blog-card:nth-child(4) { animation-delay: 0.25s; }
+.blog-card:nth-child(5) { animation-delay: 0.3s; }
+
+
+/* ============================================
+   RESPONSIVE - TABLET
+============================================= */
+@media (max-width: 1024px) {
+    :root {
+        --left-panel-width: 320px;
+    }
+    
+    .right-panel {
+        padding: 40px 40px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE - MOBILE
+============================================= */
+@media (max-width: 768px) {
+    
+    /* Show mobile nav */
+    .mobile-nav {
+        display: flex;
+    }
+    
+    /* Hide the divider on mobile */
+    .divider {
+        display: none;
+    }
+    
+    /* Left panel - Full width, toggleable */
+    .left-panel {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 60px; /* Space for mobile nav */
+        transform: translateX(0);
+        z-index: 50;
+    }
+    
+    /* Right panel - Full width, toggleable */
+    .right-panel {
+        margin-left: 0;
+        padding: 30px 20px 100px; /* Extra bottom padding for nav */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 60px;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: var(--transition);
+    }
+    
+    /* Show panels based on active state */
+    .left-panel.show {
+        transform: translateX(0);
+    }
+    
+    .right-panel.show {
+        transform: translateX(0);
+    }
+    
+    /* Default: show left panel */
+    .left-panel {
+        transform: translateX(0);
+    }
+    
+    /* Blog card layout */
+    .blog-card {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .blog-date {
+        flex-direction: row;
+        gap: 8px;
+        width: fit-content;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .profile-name {
+        font-size: 1.3rem;
+    }
+    
+    /* Remove grid background on mobile */
+    .right-panel::before {
+        display: none;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE - SMALL MOBILE
+============================================= */
+@media (max-width: 480px) {
+    .left-panel {
+        padding: 30px 20px;
+    }
+    
+    .profile-pic-placeholder {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .skills-grid {
+        gap: 6px;
+    }
+    
+    .skill-tag {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .currently-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================
+   UTILITY CLASSES
+   - Add these to elements for quick styling
+============================================= */
+
+/* Glow effect on text */
+.glow {
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Monospace font */
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Muted text */
+.muted {
+    color: var(--text-muted);
+}
+
+/* Accent color text */
+.accent {
+    color: var(--accent-color);
+}
+
+/* Hide on mobile */
+.hide-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
+/* Hide on desktop */
+.hide-desktop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hide-desktop {
+        display: block;
+    }
 }
