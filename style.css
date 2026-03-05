@@ -1,6 +1,7 @@
 /* ============================================
    CSS VARIABLES (DARK HACKER THEME)
    - Ultra dark with greenish-grey accents
+   - Change these to customize your colors
 ============================================= */
 :root {
     /* ===== BACKGROUNDS ===== */
@@ -414,8 +415,6 @@ ul {
 }
 
 .project-year {
-    font-size: 0.75rem
-    .project-year {
     font-size: 0.75rem;
     color: var(--text-muted);
     font-family: 'JetBrains Mono', monospace;
