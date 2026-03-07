@@ -10,111 +10,84 @@
     ============================================= -->
     <title>Liam | Developer</title>
     
-    <!-- ============================================
-         CSS FILE
-         - Make sure style.css is in the same folder
-    ============================================= -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- ============================================
-         FONTS
-         - Inter: Clean modern font
-         - JetBrains Mono: Code-style font
-    ============================================= -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- ============================================
          MOUSE GLOW
-         - Creates ambient glow that follows cursor
-         - Only visible on desktop
-         - Controlled by JavaScript at bottom
+         - Ambient glow follows cursor
+         - Hidden on mobile (via CSS)
     ============================================= -->
     <div class="mouse-glow"></div>
 
 
     <!-- ============================================
-         MAIN WRAPPER
-         - Contains the entire page layout
-         - Splits into left and right on desktop
-         - Stacks vertically on mobile
+         PAGE WRAPPER
+         - Desktop: side-by-side layout
+         - Mobile: stacked vertically, scrollable
     ============================================= -->
-    <div class="wrapper">
+    <div class="page">
 
 
         <!-- ============================================
-             LEFT PANEL
-             - Contains your personal info
-             - Fixed position on desktop
-             - Normal flow on mobile (scrolls with page)
+             LEFT SIDE - YOUR INFO
+             - Desktop: fixed sidebar
+             - Mobile: normal flow, scrolls with page
         ============================================= -->
-        <aside class="left-panel">
+        <aside class="sidebar">
 
 
-            <!-- ==========================================
-                 PROFILE SECTION
-                 - Your photo/initial, name, title, location
-            =========================================== -->
+            <!-- ==================
+                 PROFILE
+            ================== -->
             <div class="profile">
                 
-                <!-- Profile Image -->
-                <!-- Option 1: Show your initial (current) -->
+                <!-- Avatar: shows your initial -->
+                <!-- To use photo: <img src="photo.jpg" alt="Name" class="avatar"> -->
                 <div class="avatar">L</div>
                 
-                <!-- Option 2: Use a real photo instead -->
-                <!-- Delete the div above and uncomment this: -->
-                <!-- <img src="your-photo.jpg" alt="Your Name" class="avatar"> -->
-                
-                <!-- Your Name -->
+                <!-- Name -->
                 <h1 class="name">Liam</h1>
                 
-                <!-- Your Job Title -->
-                <p class="title">Full-Stack Developer</p>
+                <!-- Job title -->
+                <p class="role">Full-Stack Developer</p>
                 
-                <!-- Your Location (optional - delete if not needed) -->
+                <!-- Location (optional) -->
                 <p class="location">San Francisco, CA</p>
                 
-                <!-- Availability Status -->
-                <!-- Delete this div if you don't want to show status -->
+                <!-- Status badge -->
                 <div class="status">
                     <span class="status-dot"></span>
                     <span>Available for work</span>
                 </div>
                 
             </div>
-            <!-- END PROFILE -->
 
 
-            <!-- ==========================================
-                 ABOUT SECTION
-                 - Short bio about yourself
-            =========================================== -->
-            <div class="info-block">
-                
-                <h2 class="info-label">About</h2>
-                
-                <!-- Write 2-3 sentences about yourself -->
-                <p class="info-text">
+            <!-- ==================
+                 ABOUT
+            ================== -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">About</h2>
+                <p class="about">
                     Building software that solves real problems. 
                     Focused on clean code, performance, and user experience. 
                     Currently interested in distributed systems and developer tools.
                 </p>
-                
             </div>
-            <!-- END ABOUT -->
 
 
-            <!-- ==========================================
-                 SKILLS/STACK SECTION
-                 - List your technical skills
-            =========================================== -->
-            <div class="info-block">
-                
-                <h2 class="info-label">Stack</h2>
-                
-                <!-- Add or remove skills as needed -->
-                <div class="tags-list">
+            <!-- ==================
+                 SKILLS
+            ================== -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Stack</h2>
+                <div class="skills">
                     <span class="skill">TypeScript</span>
                     <span class="skill">React</span>
                     <span class="skill">Node.js</span>
@@ -124,516 +97,362 @@
                     <span class="skill">Docker</span>
                     <span class="skill">AWS</span>
                 </div>
-                
             </div>
-            <!-- END SKILLS -->
 
 
-            <!-- ==========================================
-                 CONTACT LINKS SECTION
-                 - Links to email and social profiles
-            =========================================== -->
-            <div class="info-block">
-                
-                <h2 class="info-label">Connect</h2>
-                
-                <ul class="links-list">
-                    
-                    <!-- Email Link -->
+            <!-- ==================
+                 LINKS
+            ================== -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Connect</h2>
+                <ul class="links">
                     <li>
-                        <a href="mailto:your@email.com" class="link-item">
-                            <span class="link-text">Email</span>
+                        <a href="mailto:your@email.com">
+                            <span>Email</span>
                             <span class="link-arrow">-></span>
                         </a>
                     </li>
-                    
-                    <!-- GitHub Link -->
                     <li>
-                        <a href="https://github.com/yourusername" target="_blank" class="link-item">
-                            <span class="link-text">GitHub</span>
+                        <a href="https://github.com/yourusername" target="_blank">
+                            <span>GitHub</span>
                             <span class="link-arrow">-></span>
                         </a>
                     </li>
-                    
-                    <!-- LinkedIn Link -->
                     <li>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" class="link-item">
-                            <span class="link-text">LinkedIn</span>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank">
+                            <span>LinkedIn</span>
                             <span class="link-arrow">-></span>
                         </a>
                     </li>
-                    
-                    <!-- Twitter Link -->
                     <li>
-                        <a href="https://twitter.com/yourusername" target="_blank" class="link-item">
-                            <span class="link-text">Twitter</span>
+                        <a href="https://twitter.com/yourusername" target="_blank">
+                            <span>Twitter</span>
                             <span class="link-arrow">-></span>
                         </a>
                     </li>
-                    
-                    <!-- Add more links by copying the <li> structure above -->
-                    
                 </ul>
-                
             </div>
-            <!-- END CONTACT -->
 
 
-            <!-- ==========================================
+            <!-- ==================
                  FOOTER
-                 - Copyright notice
-            =========================================== -->
-            <footer class="panel-footer">
+            ================== -->
+            <div class="sidebar-footer">
                 <p>2024 Liam</p>
-            </footer>
+            </div>
 
 
         </aside>
-        <!-- END LEFT PANEL -->
 
 
         <!-- ============================================
-             DIVIDER
-             - Vertical line between left and right panels
+             DIVIDER LINE
+             - Vertical line between panels
              - Hidden on mobile
         ============================================= -->
         <div class="divider"></div>
 
 
         <!-- ============================================
-             RIGHT PANEL
-             - Contains projects and blog posts
-             - Scrollable on desktop
-             - Normal flow on mobile
+             MAIN CONTENT - PROJECTS & BLOG
+             - Desktop: scrollable main area
+             - Mobile: continues below sidebar
         ============================================= -->
-        <main class="right-panel">
+        <main class="content">
 
 
-            <!-- ==========================================
-                 PROJECTS SECTION
-            =========================================== -->
-            <section class="content-section">
+            <!-- ==================
+                 PROJECTS
+            ================== -->
+            <section class="section">
                 
-                <!-- Section Header -->
                 <div class="section-header">
                     <h2 class="section-title">Projects</h2>
-                    <p class="section-desc">Things I have built</p>
+                    <p class="section-sub">Things I have built</p>
                 </div>
-                
-                <!-- Projects Grid -->
-                <div class="cards-grid">
 
+                <div class="cards">
 
-                    <!-- ==============================
-                         PROJECT 1
-                         - Copy this entire <a> block to add more projects
-                    =============================== -->
-                    <a href="https://your-project-url.com" target="_blank" class="card">
-                        
-                        <!-- Glow effect on hover (CSS handles this) -->
+                    <!-- PROJECT 1 -->
+                    <a href="https://your-project.com" target="_blank" class="card">
                         <div class="card-glow"></div>
-                        
-                        <!-- Card content -->
-                        <div class="card-body">
-                            
-                            <!-- Top row: title and year -->
-                            <div class="card-header">
-                                <h3 class="card-title">Project Name</h3>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <h3 class="card-name">Project Name</h3>
                                 <span class="card-year">2024</span>
                             </div>
-                            
-                            <!-- Description (1-2 sentences) -->
                             <p class="card-desc">
                                 A brief description of what this project does. 
-                                Keep it short for best readability.
+                                Keep it short and clear.
                             </p>
-                            
-                            <!-- Technologies used -->
-                            <div class="card-tech">
+                            <div class="card-tags">
                                 <span>React</span>
                                 <span>Node.js</span>
                                 <span>PostgreSQL</span>
                             </div>
-                            
-                            <!-- Link text -->
-                            <div class="card-link">
+                            <div class="card-bottom">
                                 <span>View Project</span>
-                                <span class="arrow">-></span>
+                                <span class="card-arrow">-></span>
                             </div>
-                            
                         </div>
                     </a>
-                    <!-- END PROJECT 1 -->
 
-
-                    <!-- ==============================
-                         PROJECT 2
-                    =============================== -->
+                    <!-- PROJECT 2 -->
                     <a href="https://github.com/username/repo" target="_blank" class="card">
                         <div class="card-glow"></div>
-                        <div class="card-body">
-                            <div class="card-header">
-                                <h3 class="card-title">CLI Tool</h3>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <h3 class="card-name">CLI Tool</h3>
                                 <span class="card-year">2024</span>
                             </div>
                             <p class="card-desc">
-                                Command-line tool for automating development workflows. 
+                                Command-line tool for automating workflows. 
                                 Saves hours of repetitive work.
                             </p>
-                            <div class="card-tech">
+                            <div class="card-tags">
                                 <span>Go</span>
                                 <span>Cobra</span>
                             </div>
-                            <div class="card-link">
+                            <div class="card-bottom">
                                 <span>View Source</span>
-                                <span class="arrow">-></span>
+                                <span class="card-arrow">-></span>
                             </div>
                         </div>
                     </a>
-                    <!-- END PROJECT 2 -->
 
-
-                    <!-- ==============================
-                         PROJECT 3
-                    =============================== -->
-                    <a href="https://your-project-url.com" target="_blank" class="card">
+                    <!-- PROJECT 3 -->
+                    <a href="https://your-project.com" target="_blank" class="card">
                         <div class="card-glow"></div>
-                        <div class="card-body">
-                            <div class="card-header">
-                                <h3 class="card-title">API Service</h3>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <h3 class="card-name">API Service</h3>
                                 <span class="card-year">2023</span>
                             </div>
                             <p class="card-desc">
-                                High-performance REST API handling millions of requests. 
-                                Built with caching and rate limiting.
+                                High-performance REST API with caching and rate limiting.
                             </p>
-                            <div class="card-tech">
+                            <div class="card-tags">
                                 <span>Python</span>
                                 <span>FastAPI</span>
                                 <span>Redis</span>
                             </div>
-                            <div class="card-link">
+                            <div class="card-bottom">
                                 <span>View Project</span>
-                                <span class="arrow">-></span>
+                                <span class="card-arrow">-></span>
                             </div>
                         </div>
                     </a>
-                    <!-- END PROJECT 3 -->
 
-
-                    <!-- ==============================
-                         PROJECT 4
-                    =============================== -->
+                    <!-- PROJECT 4 -->
                     <a href="https://github.com/username/repo" target="_blank" class="card">
                         <div class="card-glow"></div>
-                        <div class="card-body">
-                            <div class="card-header">
-                                <h3 class="card-title">Dashboard</h3>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <h3 class="card-name">Dashboard</h3>
                                 <span class="card-year">2023</span>
                             </div>
                             <p class="card-desc">
-                                Real-time analytics dashboard with customizable widgets. 
-                                Visualizes data from multiple sources.
+                                Real-time analytics dashboard with customizable widgets.
                             </p>
-                            <div class="card-tech">
+                            <div class="card-tags">
                                 <span>Vue.js</span>
                                 <span>D3.js</span>
                                 <span>WebSocket</span>
                             </div>
-                            <div class="card-link">
+                            <div class="card-bottom">
                                 <span>View Source</span>
-                                <span class="arrow">-></span>
+                                <span class="card-arrow">-></span>
                             </div>
                         </div>
                     </a>
-                    <!-- END PROJECT 4 -->
-
 
                 </div>
-                <!-- END PROJECTS GRID -->
-                
+
             </section>
-            <!-- END PROJECTS SECTION -->
 
 
-            <!-- ==========================================
-                 BLOG SECTION
-            =========================================== -->
-            <section class="content-section">
+            <!-- ==================
+                 BLOG
+            ================== -->
+            <section class="section">
                 
-                <!-- Section Header -->
                 <div class="section-header">
                     <h2 class="section-title">Blog</h2>
-                    <p class="section-desc">Thoughts and tutorials</p>
+                    <p class="section-sub">Thoughts and tutorials</p>
                 </div>
-                
-                <!-- Blog Posts List -->
-                <div class="posts-list">
 
+                <div class="posts">
 
-                    <!-- ==============================
-                         BLOG POST 1
-                         - Copy this entire <a> block to add more posts
-                    =============================== -->
-                    <a href="/blog/your-post-url" class="post">
-                        
-                        <!-- Date -->
+                    <!-- POST 1 -->
+                    <a href="/blog/post-url" class="post">
                         <div class="post-date">
-                            <span class="date-day">15</span>
-                            <span class="date-month">Mar</span>
+                            <span class="post-day">15</span>
+                            <span class="post-month">Mar</span>
                         </div>
-                        
-                        <!-- Content -->
-                        <div class="post-body">
-                            
-                            <!-- Title -->
+                        <div class="post-info">
                             <h3 class="post-title">Building Scalable APIs with FastAPI</h3>
-                            
-                            <!-- Excerpt (1-2 sentences) -->
                             <p class="post-excerpt">
                                 A deep dive into building production-ready APIs. 
                                 Covering authentication, caching, and deployment.
                             </p>
-                            
-                            <!-- Meta: tag and read time -->
                             <div class="post-meta">
-                                <span class="meta-tag">Tutorial</span>
-                                <span class="meta-read">12 min read</span>
+                                <span class="post-tag">Tutorial</span>
+                                <span class="post-time">12 min read</span>
                             </div>
-                            
                         </div>
-                        
-                        <!-- Arrow (appears on hover) -->
                         <span class="post-arrow">-></span>
-                        
                     </a>
-                    <!-- END POST 1 -->
 
-
-                    <!-- ==============================
-                         BLOG POST 2
-                    =============================== -->
-                    <a href="/blog/your-post-url" class="post">
+                    <!-- POST 2 -->
+                    <a href="/blog/post-url" class="post">
                         <div class="post-date">
-                            <span class="date-day">02</span>
-                            <span class="date-month">Mar</span>
+                            <span class="post-day">02</span>
+                            <span class="post-month">Mar</span>
                         </div>
-                        <div class="post-body">
+                        <div class="post-info">
                             <h3 class="post-title">My Development Environment in 2024</h3>
                             <p class="post-excerpt">
                                 Tools, configs, and workflows I use daily. 
                                 Terminal setup, editor, and productivity apps.
                             </p>
                             <div class="post-meta">
-                                <span class="meta-tag">Setup</span>
-                                <span class="meta-read">8 min read</span>
+                                <span class="post-tag">Setup</span>
+                                <span class="post-time">8 min read</span>
                             </div>
                         </div>
                         <span class="post-arrow">-></span>
                     </a>
-                    <!-- END POST 2 -->
 
-
-                    <!-- ==============================
-                         BLOG POST 3
-                    =============================== -->
-                    <a href="/blog/your-post-url" class="post">
+                    <!-- POST 3 -->
+                    <a href="/blog/post-url" class="post">
                         <div class="post-date">
-                            <span class="date-day">18</span>
-                            <span class="date-month">Feb</span>
+                            <span class="post-day">18</span>
+                            <span class="post-month">Feb</span>
                         </div>
-                        <div class="post-body">
+                        <div class="post-info">
                             <h3 class="post-title">Understanding TypeScript Generics</h3>
                             <p class="post-excerpt">
                                 Practical guide to generics with real-world examples. 
                                 From basics to advanced patterns.
                             </p>
                             <div class="post-meta">
-                                <span class="meta-tag">TypeScript</span>
-                                <span class="meta-read">15 min read</span>
+                                <span class="post-tag">TypeScript</span>
+                                <span class="post-time">15 min read</span>
                             </div>
                         </div>
                         <span class="post-arrow">-></span>
                     </a>
-                    <!-- END POST 3 -->
 
-
-                    <!-- ==============================
-                         BLOG POST 4
-                    =============================== -->
-                    <a href="/blog/your-post-url" class="post">
+                    <!-- POST 4 -->
+                    <a href="/blog/post-url" class="post">
                         <div class="post-date">
-                            <span class="date-day">05</span>
-                            <span class="date-month">Feb</span>
+                            <span class="post-day">05</span>
+                            <span class="post-month">Feb</span>
                         </div>
-                        <div class="post-body">
+                        <div class="post-info">
                             <h3 class="post-title">Docker for Local Development</h3>
                             <p class="post-excerpt">
                                 Setting up a containerized development environment. 
                                 Consistent setups across machines.
                             </p>
                             <div class="post-meta">
-                                <span class="meta-tag">DevOps</span>
-                                <span class="meta-read">10 min read</span>
+                                <span class="post-tag">DevOps</span>
+                                <span class="post-time">10 min read</span>
                             </div>
                         </div>
                         <span class="post-arrow">-></span>
                     </a>
-                    <!-- END POST 4 -->
 
-
-                    <!-- ==============================
-                         BLOG POST 5
-                    =============================== -->
-                    <a href="/blog/your-post-url" class="post">
+                    <!-- POST 5 -->
+                    <a href="/blog/post-url" class="post">
                         <div class="post-date">
-                            <span class="date-day">21</span>
-                            <span class="date-month">Jan</span>
+                            <span class="post-day">21</span>
+                            <span class="post-month">Jan</span>
                         </div>
-                        <div class="post-body">
+                        <div class="post-info">
                             <h3 class="post-title">Writing Better Git Commits</h3>
                             <p class="post-excerpt">
-                                Conventions and tools for meaningful commit history. 
-                                Making your repos easier to navigate.
+                                Conventions and tools for meaningful commit history.
                             </p>
                             <div class="post-meta">
-                                <span class="meta-tag">Git</span>
-                                <span class="meta-read">6 min read</span>
+                                <span class="post-tag">Git</span>
+                                <span class="post-time">6 min read</span>
                             </div>
                         </div>
                         <span class="post-arrow">-></span>
                     </a>
-                    <!-- END POST 5 -->
-
 
                 </div>
-                <!-- END POSTS LIST -->
-                
+
             </section>
-            <!-- END BLOG SECTION -->
 
 
         </main>
-        <!-- END RIGHT PANEL -->
 
 
     </div>
-    <!-- END WRAPPER -->
 
 
     <!-- ============================================
          JAVASCRIPT
          - Mouse glow effect
-         - Card hover glow effect
+         - Card hover glow
     ============================================= -->
     <script>
-        
-        /* ==========================================
-           MOUSE GLOW EFFECT
-           - Creates a glow that follows cursor
-           - Disabled on touch/mobile devices
-        =========================================== */
+        // ==========================================
+        // MOUSE GLOW - follows cursor on desktop
+        // ==========================================
         (function() {
-            
-            // Get the glow element
             var glow = document.querySelector('.mouse-glow');
-            
-            // Exit if no glow element found
             if (!glow) return;
             
-            // Check if touch device (likely mobile)
-            var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            
-            // Hide glow on touch devices
-            if (isTouch) {
+            // Disable on touch devices
+            if ('ontouchstart' in window) {
                 glow.style.display = 'none';
                 return;
             }
             
-            // Track mouse position
-            var mouseX = 0;
-            var mouseY = 0;
+            var x = 0, y = 0;
+            var gx = 0, gy = 0;
             
-            // Track glow position (for smooth animation)
-            var glowX = 0;
-            var glowY = 0;
-            
-            // Update mouse position on move
             document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+                x = e.clientX;
+                y = e.clientY;
             });
             
-            // Animation loop for smooth glow movement
             function animate() {
-                
-                // Ease glow towards mouse (0.1 = smoothing factor)
-                glowX += (mouseX - glowX) * 0.1;
-                glowY += (mouseY - glowY) * 0.1;
-                
-                // Position glow (offset by half its size to center it)
-                glow.style.left = glowX + 'px';
-                glow.style.top = glowY + 'px';
-                
-                // Continue animation
+                gx += (x - gx) * 0.1;
+                gy += (y - gy) * 0.1;
+                glow.style.left = gx + 'px';
+                glow.style.top = gy + 'px';
                 requestAnimationFrame(animate);
             }
-            
-            // Start animation
             animate();
-            
         })();
         
-        
-        /* ==========================================
-           CARD GLOW EFFECT
-           - Shows highlight that follows mouse on cards
-           - Creates interactive hover effect
-        =========================================== */
+        // ==========================================
+        // CARD GLOW - follows mouse on hover
+        // ==========================================
         (function() {
-            
-            // Get all cards
             var cards = document.querySelectorAll('.card');
             
-            // Add effect to each card
             cards.forEach(function(card) {
-                
-                // Get the glow element inside this card
                 var glow = card.querySelector('.card-glow');
-                
-                // Skip if no glow element
                 if (!glow) return;
                 
-                // On mouse move inside card
                 card.addEventListener('mousemove', function(e) {
-                    
-                    // Get card position
                     var rect = card.getBoundingClientRect();
-                    
-                    // Calculate mouse position relative to card
-                    var x = e.clientX - rect.left;
-                    var y = e.clientY - rect.top;
-                    
-                    // Move glow to mouse position
-                    glow.style.left = x + 'px';
-                    glow.style.top = y + 'px';
-                    
-                    // Show glow
+                    glow.style.left = (e.clientX - rect.left) + 'px';
+                    glow.style.top = (e.clientY - rect.top) + 'px';
                     glow.style.opacity = '1';
                 });
                 
-                // On mouse leave card
                 card.addEventListener('mouseleave', function() {
-                    
-                    // Hide glow
                     glow.style.opacity = '0';
                 });
             });
-            
         })();
-        
     </script>
-
 
 </body>
 </html>
